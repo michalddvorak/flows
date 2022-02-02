@@ -2,4 +2,9 @@
 build
 logs/gurobi-log.txt
 *.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz
 main
