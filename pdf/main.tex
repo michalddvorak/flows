@@ -135,16 +135,11 @@ s proměnnými $x_p$ za každou $s$-$t$ cestu. Problémem je, že těch je expon
 
 Ten má proměnnou $y_e$ za každou hranu $e\in E$ ale podmínku za každou cestu $p\in \mathcal{P}$. Myšlenka bude přidávat tyto podmínky do řešiče postupně. Lze nahlédnout, že polynomiálně mnoho podmínek bude stačit pro nalezení optima, protože i Dinitzův algoritmus uvažuje jen polynomiálně mnoho cest z $s$ do $t$ protože oba pracují v polynomiálním čase. Ohodnocení hran $y_e$ můžeme interpretovat jako váhové ohodnocení hran a podmínky za každou cestu jsou splněny všechny pokud vzdálenost\footnote{vzdálenost $d(u,v)$ mezi dvěma vrcholy v orientovaném grafu je délka nejkratší cesty z $u$ do $v$ (případně $+\infty$ pokud žádná neexistuje)} $s$ od $t$ je alespoň $1$. Na hledání nejkratší cesty z $s$ do $t$ lze použít například Dijkstrův algoritmus. Pro rozbor Dijkstrova algoritma opět odkazujeme do \cite{labyrint}.
 
-
-\subsection{Strategie přidávání cest}
-Je otázkou, jakou přesně strategii pro přidávání cest. V prvním kroku, kdy pustíme program \ref{dual_exp} bez podmínek pro všechny cesty, nám řešič vrátí optimum $y=0$ a bude zjevně existovat hodně cest, pro které bude $\sum_{e\in p}y_e<1$. Vyzkoušíme dva přístupy. Pomocí dijkstrova algoritmu najdeme nejkratší cestu z $s$ do $t$. Pokud ta bude délky $\geq 1$, pak máme optimum a vracíme. V opačném přípdě přidáme jednu podmínku pro tuto nejkratší cestu do řešiče a řešič pustíme znovu. V druhém přístupu se pokusíme cest přidat víc. 
-
-TODODODO
-Kromě této nejkratší cesty vytvoříme síť rezerv podobně jako v Dinitzově algoritmu a 
-
-
 \section{Experimenty}
-Pro experimentální vyhodnocení byly vygenerovány dvě sady instancí postupně zvětšujících se velikostí. Nejprve řídké grafy s $n$ vrcholy a $dn$ hranami pro $n\in\{50,\ldots,3000\}$ a postupně pro $d\in\{1,\ldots,15\}$.
+Experimenty lze nalézt v jupyter-notebooku ve složce {\tt visualization}
+
+\section{Závěr}
+TODO
 
 
 \bibliographystyle{acm} %don't care about the style really, this one works ...
