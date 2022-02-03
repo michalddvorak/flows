@@ -60,7 +60,7 @@ V této práci se věnujeme problému maximálního toku resp. minimálního ře
 \section{Pojmy}
 
 \begin{defn}
-	\textit{Síť} je uspořádaná pětice $(V,E,s,t,c)$ přičemž $(V,E)$ je orientovaný graf (se smyčkama) a $s,t\in V$ dva vyznačené vrcholy - \textit{zdroj} a \textit{stok}. $c\colon E\rightarrow \mathbb{R}^+$ je funkce přiřazující každé hraně $e$ její kapacitu $c(e)$.
+	\textit{Síť} je uspořádaná pětice $(V,E,s,t,c)$ přičemž $(V,E)$ je orientovaný graf (se smyčkami) a $s,t\in V$ dva vyznačené vrcholy - \textit{zdroj} a \textit{stok}. $c\colon E\rightarrow \mathbb{R}^+$ je funkce přiřazující každé hraně $e$ její kapacitu $c(e)$.
 \end{defn}
 \begin{defn}
 	\textit{Tok v síti} $(V,E,s,t,c)$ je funkce $f\colon E\rightarrow \mathbb{R}^+$ splňující:
@@ -72,10 +72,10 @@ V této práci se věnujeme problému maximálního toku resp. minimálního ře
 	$$
 	w(f) = \sum_{(s,v)\in E}f((s,v))-\sum_{(v,s)\in E}f((v,s))
 	$$
-	Tok $f$ je \textit{maximální} pokud pro každý tok $f'$ je $w(f)\geq w(f')$.
+	Tok $f$ je \textit{maximální}, pokud pro každý tok $f'$ je $w(f)\geq w(f')$.
 \end{defn}
 
-Dá se ukázat, že každá síť skutečně má maximální tok i když jsou kapacity libovolná reálná čísla. My se však omezíme na kapacity racionální (resp. celočíselné). Problém nalezení maximálního toku řeší několik standardních algoritmů. Pro srovnání s formulacemi a řešeními pomocí LP použijeme Dinitzův algoritmus. Pro detailní popis Dinitzova algoritmu odkazujeme čtenáře na \cite{labyrint}. Teoretická doba běhu Dinitzova algoritmu pro graf s $n$ vrcholy a $m$ hranami je $O(n^2m)$.
+Dá se ukázat, že každá síť skutečně má maximální tok, i když jsou kapacity libovolná reálná čísla. My se však omezíme na kapacity racionální (resp. celočíselné). Problém nalezení maximálního toku řeší několik standardních algoritmů. Pro srovnání s formulacemi a řešeními pomocí LP použijeme Dinitzův algoritmus. Pro detailní popis Dinitzova algoritmu odkazujeme čtenáře na \cite{labyrint}. Teoretická doba běhu Dinitzova algoritmu pro graf s $n$ vrcholy a $m$ hranami je $O(n^2m)$.
 
 
 Poznamenejme, že problém maximálního toku je úzce spjat s problémem minimálního řezu. Problém nalezení minimálního řezu v síti je nalezení množiny $A\subseteq V$ takové, že $s\in A,t\notin A$ a $\sum_{u\in A,v\notin A}c((u,v))$ je minimální. Na problém minimálního řezu se dá pohlížet jako na duál maximálního toku. I bez teorie lineárního programování se dá ukázat, že velikost minimálního řezu je rovna velikosti maximálního toku v každé síti.
@@ -133,11 +133,11 @@ s proměnnými $x_p$ za každou $s$-$t$ cestu. Problémem je, že $s$-$t$ cest j
 \end{array}
 \end{equation}
 
-Ten má proměnnou $y_e$ za každou hranu $e\in E$ ale podmínku za každou cestu $p\in \mathcal{P}$. Myšlenka bude přidávat tyto podmínky do řešiče postupně. Lze nahlédnout, že polynomiálně mnoho podmínek bude stačit pro nalezení optima, protože i Dinitzův algoritmus uvažuje jen polynomiálně mnoho cest z $s$ do $t$ protože pracuje v polynomiálním čase. Ohodnocení hran $y_e$ můžeme interpretovat jako váhové ohodnocení hran a podmínky za každou cestu jsou splněny všechny pokud vzdálenost\footnote{vzdálenost $d(u,v)$ mezi dvěma vrcholy $u,v\in V$ v (orientovaném) grafu je délka nejkratší (orientované) cesty z $u$ do $v$ (případně $+\infty$ pokud žádná (orientovaná) cesta neexistuje)} $s$ od $t$ je alespoň $1$. Na hledání nejkratší cesty z $s$ do $t$ lze použít například Dijkstrův algoritmus. Pro rozbor Dijkstrova algoritma opět odkazujeme do \cite{labyrint}. Je použita implementace s binární haldou. Teoretická doba běhu této varianty Dijkstrova algoritmu je $O((n+m)\log n)$.\footnote{Lze zlepšit na teoretických $O(m+n\log n)$ s Fibonacciho haldou, ale v praxi je to spíš pomalejší.}
+Ten má proměnnou $y_e$ za každou hranu $e\in E$, ale podmínku za každou cestu $p\in \mathcal{P}$. Myšlenkou bude přidávat tyto podmínky do řešiče postupně. Lze nahlédnout, že polynomiálně mnoho podmínek bude stačit pro nalezení optima. Ohodnocení hran $y_e$ můžeme interpretovat jako váhové ohodnocení hran a podmínky za každou cestu jsou splněny všechny, pokud vzdálenost\footnote{vzdálenost $d(u,v)$ mezi dvěma vrcholy $u,v\in V$ v (orientovaném) grafu je délka nejkratší (orientované) cesty z $u$ do $v$ (případně $+\infty$ pokud žádná (orientovaná) cesta neexistuje)} $s$ od $t$ je alespoň $1$. Na hledání nejkratší cesty z $s$ do $t$ lze použít například Dijkstrův algoritmus. Pro rozbor Dijkstrova algoritma opět odkazujeme do \cite{labyrint}. V práci je použita implementace s binární haldou. Teoretická doba běhu této varianty Dijkstrova algoritmu je $O((n+m)\log n)$.\footnote{Lze zlepšit na teoretických $O(m+n\log n)$ s Fibonacciho haldou, ale v praxi je to spíš pomalejší.}
 
-\section{Experimenty \& Závěr}
-Experimenty a závěr lze nalézt v jupyter-notebooku ve složce {\tt visualization}.
 
+\section{Experimenty a Závěr}
+Je k nalezení v jupyter-notebooku ve složce {\tt visualization}.
 
 \bibliographystyle{acm} %don't care about the style really, this one works ...
 \bibliography{references}
