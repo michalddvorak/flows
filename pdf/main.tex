@@ -135,11 +135,8 @@ s proměnnými $x_p$ za každou $s$-$t$ cestu. Problémem je, že $s$-$t$ cest j
 
 Ten má proměnnou $y_e$ za každou hranu $e\in E$ ale podmínku za každou cestu $p\in \mathcal{P}$. Myšlenka bude přidávat tyto podmínky do řešiče postupně. Lze nahlédnout, že polynomiálně mnoho podmínek bude stačit pro nalezení optima, protože i Dinitzův algoritmus uvažuje jen polynomiálně mnoho cest z $s$ do $t$ protože pracuje v polynomiálním čase. Ohodnocení hran $y_e$ můžeme interpretovat jako váhové ohodnocení hran a podmínky za každou cestu jsou splněny všechny pokud vzdálenost\footnote{vzdálenost $d(u,v)$ mezi dvěma vrcholy $u,v\in V$ v (orientovaném) grafu je délka nejkratší (orientované) cesty z $u$ do $v$ (případně $+\infty$ pokud žádná (orientovaná) cesta neexistuje)} $s$ od $t$ je alespoň $1$. Na hledání nejkratší cesty z $s$ do $t$ lze použít například Dijkstrův algoritmus. Pro rozbor Dijkstrova algoritma opět odkazujeme do \cite{labyrint}. Je použita implementace s binární haldou. Teoretická doba běhu této varianty Dijkstrova algoritmu je $O((n+m)\log n)$.\footnote{Lze zlepšit na teoretických $O(m+n\log n)$ s Fibonacciho haldou, ale v praxi je to spíš pomalejší.}
 
-\section{Experimenty}
-Experimenty lze nalézt v jupyter-notebooku ve složce {\tt visualization}
-
-\section{Závěr}
-TODO
+\section{Experimenty \& Závěr}
+Experimenty a závěr lze nalézt v jupyter-notebooku ve složce {\tt visualization}.
 
 
 \bibliographystyle{acm} %don't care about the style really, this one works ...
