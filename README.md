@@ -3,7 +3,7 @@
 # Složky:
 
 - src ... zdrojové soubory
-- pdf ... krátké povídání o teoretické části v podobě pdf a zdroje v .tex (WIP, závěr)
-- visualization ... praktická část (experimenty) v podobě jupyter notebooku (WIP, husté grafy)
+- pdf ... krátké povídání o teoretické části v podobě pdf a zdroje v .tex
+- visualization ... praktická část (experimenty) v podobě jupyter notebooku
 - out ... výstupy z běhů
 
